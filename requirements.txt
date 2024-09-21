@@ -8,3 +8,4 @@ requests
 datetime
 scikit-learn
 matplotlib
+security==1.3.1
