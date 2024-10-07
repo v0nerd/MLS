@@ -9,7 +9,7 @@ import os
 import openpyxl
 from sklearn.preprocessing import MinMaxScaler
 import time
-import random
+import secrets
 
 def get_data(more_data:bool) -> pd.DataFrame:       
     
@@ -363,6 +363,6 @@ def get_team_name_fbref_format(team_name:str):
     return fbref_team_name_format[team_name]
 
 def randomised_sleep_time(lower_bound, upper_bound):    
-    delay = random.uniform(lower_bound, upper_bound)
+    delay = secrets.SystemRandom().uniform(lower_bound, upper_bound)
     print(f" Sleeping for {delay:.2f} seconds...")
     time.sleep(delay)
