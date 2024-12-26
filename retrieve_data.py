@@ -4,12 +4,12 @@ from typing import Tuple
 import ScraperFC
 from datetime import datetime
 from bs4 import BeautifulSoup
-import requests
 import os
 import openpyxl
 from sklearn.preprocessing import MinMaxScaler
 import time
 import random
+from security import safe_requests
 
 def get_data(more_data:bool) -> pd.DataFrame:       
     
@@ -57,7 +57,7 @@ def get_data(more_data:bool) -> pd.DataFrame:
                     }
                 ##############################################################################
 
-                html = requests.get(match_url, proxies = proxy_html_dict)
+                html = safe_requests.get(match_url, proxies = proxy_html_dict)
                 randomised_sleep_time(1,7)
                 soup = BeautifulSoup(html.text, 'html.parser')
 
