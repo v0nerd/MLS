@@ -57,7 +57,7 @@ def get_data(more_data:bool) -> pd.DataFrame:
                     }
                 ##############################################################################
 
-                html = requests.get(match_url, proxies = proxy_html_dict)
+                html = requests.get(match_url, proxies = proxy_html_dict, timeout=60)
                 randomised_sleep_time(1,7)
                 soup = BeautifulSoup(html.text, 'html.parser')
 
